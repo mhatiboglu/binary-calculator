@@ -48,52 +48,47 @@ document.getElementById("btnEql").addEventListener("click", function() {
   if (!checkStr()) {
     let numbers = element.innerHTML.match(numberReg);
     let operations = element.innerHTML.match(operationReg);
-    console.log(numbers);
-    console.log(operations);
-    console.log(str.indexOf(operations[0]));
-    console.log(numbers[0]);
-    console.log(parseInt(numbers[0], 2));
+
     numbers = numbers.map(item => parseInt(item, 2));
+    console.log(numbers);
     while (operations.length > 0) {
-      console.log("while");
       if (operations.indexOf("*") >= 0) {
-        console.log("*");
-
-        numbers[indexOf("*")] =
-          numbers[indexOf("*")] * numbers[indexOf("*") + 1];
-        numbers.splice(indexOf("*") + 1, 1);
-        operations.splice(indexOf("*"), 1);
-      } else if (operations.indexOf("/") > 0) {
-        console.log("/");
-
-        numbers[indexOf("/")] =
-          numbers[indexOf("/")] / numbers[indexOf("/") + 1];
-        numbers.splice(indexOf("/") + 1, 1);
-        operations.splice(indexOf("/"), 1);
-      } else if (operations.indexOf("+") >= 0) {
-        console.log("+");
-
-        numbers[operations.indexOf("+")] =
-          numbers[operations.indexOf("+")] +
-          numbers[operations.indexOf("+") + 1];
-        numbers.splice(operations.indexOf("+") + 1, 1);
-        operations.splice(operations.indexOf("+"), 1);
-        console.log("--nn" + numbers);
-        console.log("--oo" + operations);
+        let index = operations.indexOf("*");
+        numbers[index] = numbers[index] * numbers[index + 1];
+        numbers.splice(index + 1, 1);
+        operations.splice(index, 1);
       } else if (operations.indexOf("/") >= 0) {
-        console.log("-");
-
-        numbers[indexOf("-")] =
-          numbers[indexOf("-")] - numbers[indexOf("-") + 1];
-        numbers.splice(indexOf("-") + 1, 1);
-        operations.splice(indexOf("-"), 1);
+        let index = operations.indexOf("/");
+        numbers[index] = numbers[index] / numbers[index + 1];
+        numbers.splice(index + 1, 1);
+        operations.splice(index, 1);
+      } else if (operations.indexOf("-") >= 0) {
+        let index = operations.indexOf("-");
+        numbers[index] = numbers[index] - numbers[index + 1];
+        numbers.splice(index + 1, 1);
+        operations.splice(index, 1);
+        console.log(numbers);
+      } else if (operations.indexOf("+") >= 0) {
+        let index = operations.indexOf("+");
+        numbers[index] = numbers[index] + numbers[index + 1];
+        numbers.splice(index + 1, 1);
+        operations.splice(index, 1);
+        console.log(numbers);
       }
     }
-    str = numbers;
-    renderStr();
+
+    str = Number(numbers[0]).toString(2);
+
+    // str = Number(numbers[0]).toString(2);
+    // console.log('str-'+str)
+    // renderStr();
   } else {
     alert("Line must ends with number.");
   }
+
+console.log("str-" + str);
+renderStr();
+
 });
 
 function checkStr() {
