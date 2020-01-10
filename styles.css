@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: rgba(0, 0, 0, 0.065);
+  width:70%;
+  text-align: center;
+  margin: auto;
+  background-color: lightgray;
+}
+
+h1 {
+  color: rgb(207, 196, 196);
+  background-color: rgba(17, 40, 117, 0.781);
+  font-family: "Ibarra Real Nova", serif;
+}
+
+#resultDiv h2{
+  color: lawngreen;
+  background-color: rgba(96, 116, 61, 0.781);
+  height: 10vw;
+  font-size: 4vw;  
+  background-color: rgba(0, 0, 0, 0.781);
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+#btnDiv {
+  background-color: rgba(22, 22, 21, 0.781);
+}
+
+button{
+    width: 21%;
+    height: 5vw;
+    margin:1vw;
+}
+
+
+
