@@ -53,6 +53,44 @@ document.getElementById("btnEql").addEventListener("click", function() {
     console.log(str.indexOf(operations[0]));
     console.log(numbers[0]);
     console.log(parseInt(numbers[0], 2));
+    numbers = numbers.map(item => parseInt(item, 2));
+    while (operations.length > 0) {
+      console.log("while");
+      if (operations.indexOf("*") >= 0) {
+        console.log("*");
+
+        numbers[indexOf("*")] =
+          numbers[indexOf("*")] * numbers[indexOf("*") + 1];
+        numbers.splice(indexOf("*") + 1, 1);
+        operations.splice(indexOf("*"), 1);
+      } else if (operations.indexOf("/") > 0) {
+        console.log("/");
+
+        numbers[indexOf("/")] =
+          numbers[indexOf("/")] / numbers[indexOf("/") + 1];
+        numbers.splice(indexOf("/") + 1, 1);
+        operations.splice(indexOf("/"), 1);
+      } else if (operations.indexOf("+") >= 0) {
+        console.log("+");
+
+        numbers[operations.indexOf("+")] =
+          numbers[operations.indexOf("+")] +
+          numbers[operations.indexOf("+") + 1];
+        numbers.splice(operations.indexOf("+") + 1, 1);
+        operations.splice(operations.indexOf("+"), 1);
+        console.log("--nn" + numbers);
+        console.log("--oo" + operations);
+      } else if (operations.indexOf("/") >= 0) {
+        console.log("-");
+
+        numbers[indexOf("-")] =
+          numbers[indexOf("-")] - numbers[indexOf("-") + 1];
+        numbers.splice(indexOf("-") + 1, 1);
+        operations.splice(indexOf("-"), 1);
+      }
+    }
+    str = numbers;
+    renderStr();
   } else {
     alert("Line must ends with number.");
   }
